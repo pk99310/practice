@@ -1,4 +1,4 @@
-package com.example.helloworld;
+package com.example.practice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -6,18 +6,18 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
-public class HelloWorldApplication {
+public class PracticeApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(HelloWorldApplication.class, args);
+        SpringApplication.run(PracticeApplication.class, args);
     }
 
     @RestController
-    static class HelloWorldController {
+    static class HelloController {
 
-        @GetMapping("/")
-        String helloWorld() {
-            return "Hello World!";
+        @GetMapping("/hello")
+        String hello() {
+            return "Hello Pradip";
         }
     }
 }

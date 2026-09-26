@@ -1,0 +1,29 @@
+name: Build application
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out source code
+        uses: actions/checkout@v4
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+          cache: maven
+
+      - name: Build the JAR
+        run: mvn --batch-mode clean package
+
+      - name: Prepare Docker build context
+        run: cp target/practice-0.0.1-SNAPSHOT.jar app.jar
+
+      - name: Build Docker image
+        run: docker build --tag practice:${{ github.sha }} .

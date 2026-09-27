@@ -1,0 +1,7 @@
+services:
+  practice:
+    build: .
+    image: practice:local
+    ports:
+      - "8081:8080"
+    restart: unless-stopped

@@ -33,3 +33,14 @@ java -jar target/practice-0.0.1-SNAPSHOT.jar
 
 GitHub Actions builds the JAR and Docker image on every push and pull request.
 The workflow is in `.github/workflows/build.yml`.
+
+## One-command local deployment
+
+From the project directory, run:
+
+```bash
+./scripts/deploy-local.sh
+```
+
+This builds the JAR, transfers it to the Ubuntu VM, builds the Docker image,
+starts the Compose service, and checks the `/hello` endpoint.
